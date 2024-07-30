@@ -6,5 +6,5 @@ class Config {
 
   /* authentification */
   static const String authLoginApi = "/token";
-  static const String getMemberInfo = "v1/membres/mobile/member-infos";
+  static const String getMemberInfo = "/v1/membres/mobile/member-infos";
 }

@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:hizboufront/src/ui/screens/home/home.dart';
 import 'package:hizboufront/src/ui/screens/cotisation/cotisation.dart';
 import 'package:hizboufront/src/ui/screens/profile/profile.dart';
-import 'package:hizboufront/src/core/model/navbar/navbar.dart';
+import 'package:hizboufront/src/core/models/navbar/navbar.dart';
 
 class MyBottomNavBar extends StatefulWidget {
   const MyBottomNavBar({Key? key}) : super(key: key);

@@ -1,4 +1,4 @@
-import 'dart:convert';
+/* import 'dart:convert';
 
 import '../../../../model/user.dart';
 import '../shared_helper.dart';
@@ -14,7 +14,7 @@ class ConnectedUser extends SharedHelper {
 
   saveCurrentUser(dynamic user) async {
     //print('SAVED === ${}');
-    await SharedHelper.prefs.setString("user", jsonEncode(user));
+    await SharedHelper.prefs.setString("user", jsonEncode(user)); 
   }
 
   User? getCurrentUser() {
@@ -48,3 +48,4 @@ class ConnectedUser extends SharedHelper {
     }
   }
 }
+ */

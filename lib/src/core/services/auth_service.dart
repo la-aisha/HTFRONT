@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:hizboufront/src/core/configs/config.dart';
 import 'package:hizboufront/src/core/methods/common_methods.dart';
-import 'package:hizboufront/src/core/model/response/member_response.dart';
+import 'package:hizboufront/src/core/models/response/member_response.dart';
 import 'package:hizboufront/src/core/models/requests/login_request.dart';
 import 'package:hizboufront/src/core/models/response/login_response.dart';
 import 'package:dio/dio.dart';
@@ -36,8 +36,8 @@ class AuthService {
         ),
       );
 
-      print('Response status: ${response.statusCode}');
-      print('Response body: ${response.data}');
+      print('Response status token: ${response.statusCode}');
+      print('Response body token : ${response.data}');
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonResponse = response.data;
@@ -63,7 +63,7 @@ class AuthService {
     }
   }
 
-  static Future<MemberResponse?> getMemberDetails(
+  static Future<MemberResponse?> getMemberinfoService(
       String token, BuildContext context) async {
     try {
       var dio = Dio();
@@ -82,8 +82,8 @@ class AuthService {
         ),
       );
 
-      print('Response status: ${response.statusCode}');
-      print('Response body: ${response.data}');
+      print('Response status userinfo: ${response.statusCode}');
+      print('Response body unserinfo: ${response.data}');
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonResponse = response.data;

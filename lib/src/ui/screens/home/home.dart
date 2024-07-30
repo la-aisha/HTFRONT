@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hizboufront/src/core/global/colors.dart';
 import 'package:hizboufront/src/core/methods/common_methods.dart';
+import 'package:hizboufront/src/core/models/response/member_response.dart';
+import 'package:hizboufront/src/core/providers/auth_provider.dart';
 import 'package:hizboufront/src/ui/constantes/index.dart';
 import 'package:hizboufront/utils/bottom_nav_bar.dart';
 import 'package:hizboufront/utils/customelevatedbutton.dart';
 import 'package:hizboufront/utils/title.dart';
 import 'package:hizboufront/utils/titleoption.dart';
 import 'package:hizboufront/utils/titre.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,6 +20,19 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   CommonMethods commonMethods = CommonMethods();
+  late Future<dynamic> getMemberinF;
+
+  Future<MemberResponse> getMemberinFo() async {
+    final ap = Provider.of<AuthProvider>(context, listen: false);
+    String token = ap.token;
+    print('------ Token user $token ---------');
+    var result = ap.getMemberinfoProvider(token, context) ;
+
+    // Assuming result is a JSON object
+    //result.member;
+    print('---------- myprint ${result.toString()}');
+    return result;
+  }
 
   cotisationFunction() {
     commonMethods.checkConnectivity(context);
@@ -26,16 +42,32 @@ class _HomeState extends State<Home> {
         AppColors.green1,
         TitleOption(
             data: 'Message',
-            color:AppColors.green1,
+            color: AppColors.green1,
             size: 18,
             weight: FontWeight.bold),
         Titre(
-          data: 'impossible de cotiser pour le moment .Ceci sera disponible ulterieurment',
+          data:
+              'impossible de cotiser pour le moment .Ceci sera disponible ulterieurment',
           color: AppColors.green1,
           size: 12,
           weight: FontWeight.w600,
         ),
-        AssetImage(errorIcon ,) );
+        AssetImage(
+          errorIcon,
+        ));
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getMemberinF = getMemberinFo();
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
@@ -43,6 +75,8 @@ class _HomeState extends State<Home> {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     bool isTablet = width > 600;
+
+    //print('--------- memberinfo ${getMemberinF}');
 
     return DefaultTabController(
       length: 2,
@@ -402,8 +436,7 @@ class _HomeState extends State<Home> {
                                             color: AppColors.green1)),
                                     child: Center(
                                       child: Titre(
-                                        data:
-                                            'Pas de versement à date',
+                                        data: 'Pas de versement à date',
                                         color: AppColors.green1,
                                         size: 13,
                                         weight: FontWeight.w600,
@@ -422,8 +455,7 @@ class _HomeState extends State<Home> {
                                             color: AppColors.green1)),
                                     child: Center(
                                       child: Titre(
-                                        data:
-                                            'Pas de versement à date',
+                                        data: 'Pas de versement à date',
                                         color: AppColors.green1,
                                         size: 13,
                                         weight: FontWeight.w600,

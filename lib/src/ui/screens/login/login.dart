@@ -57,8 +57,10 @@ class _LoginState extends State<Login> {
         grantType: 'password');
     var result = ap.loginProvider(loginRequest, context);
     print('--------- LOGIN CALL API -------------');
+    //getMemberinFo();
     return result;
   }
+
 
   checkConnectivity() {
     print('---------------- Hello ------------------');
@@ -167,13 +169,13 @@ class _LoginState extends State<Login> {
                 borderRadius: 8,
                 width: double.infinity,
                 height: 58,
-                onPressed:  isactive
-                  ? () {
-                      login();
-                    }
-                  : () {
-                      //checkConnectivity();
-                    },
+                onPressed: isactive
+                    ? () {
+                        login();
+                      }
+                    : () {
+                        //checkConnectivity();
+                      },
                 titleText: TitleText(
                   data: 'Connexion',
                   color: Colors.white,

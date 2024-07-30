@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.2.0 <4.0.0'
+  sdk: '>=3.4.4 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -69,7 +69,7 @@ dependencies:
   dio_cache_interceptor_hive_store: 3.2.1
   hive: ^2.0.5
   path_provider: ^2.0.5
-
+  #web: 0.5.0
 
 
 
@@ -116,6 +116,7 @@ flutter:
     - images/google_ic.svg
     - images/home/
     - images/bottomnav/
+    - images/profile/
 
 
 
