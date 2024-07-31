@@ -21,18 +21,24 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   CommonMethods commonMethods = CommonMethods();
   late Future<dynamic> getMemberinF;
+  MemberResponse? member; // Variable to store member data
 
-  Future<MemberResponse> getMemberinFo() async {
+  Future<MemberResponse?> getMemberinFo() async {
     final ap = Provider.of<AuthProvider>(context, listen: false);
     String token = ap.token;
     print('------ Token user $token ---------');
-    var result = ap.getMemberinfoProvider(token, context) ;
 
-    // Assuming result is a JSON object
-    //result.member;
-    print('---------- myprint ${result.toString()}');
+    // Await the result from the provider
+    var result = await ap.getMemberinfoProvider(token, context);
+
+    setState(() {
+      member = result; // Directly assign the result to member
+      print('---- memberdata ${member?.nom ?? 'No data'}');
+    });
+
     return result;
   }
+
 
   cotisationFunction() {
     commonMethods.checkConnectivity(context);
@@ -61,6 +67,7 @@ class _HomeState extends State<Home> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    getMemberinFo();
     getMemberinF = getMemberinFo();
   }
 

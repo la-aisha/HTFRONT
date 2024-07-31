@@ -62,15 +62,13 @@ class AuthService {
       throw Exception('Échec de l\'API Auth: $e');
     }
   }
-
-  static Future<MemberResponse?> getMemberinfoService(
+static Future<MemberResponse?> getMemberinfoService(
       String token, BuildContext context) async {
     try {
       var dio = Dio();
-      var url = Config.apiUrlMs +
-          Config.getMemberInfo; // Add this endpoint in your config file
+      var url = Config.apiUrlMs + Config.getMemberInfo; // Adjust as necessary
 
-      print('URL MS MEMBRE: $url');
+      print('Fetching from URL: $url');
 
       var response = await dio.get(
         url,
@@ -82,9 +80,6 @@ class AuthService {
         ),
       );
 
-      print('Response status userinfo: ${response.statusCode}');
-      print('Response body unserinfo: ${response.data}');
-
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonResponse = response.data;
         MemberResponse memberResponse = MemberResponse.fromJson(jsonResponse);
@@ -93,18 +88,12 @@ class AuthService {
       } else {
         print(
             'Failed to fetch member details with status: ${response.statusCode}');
-        /* showAlertDialog(context, 'Erreur de connexion',
-            'Impossible de récupérer les détails du membre. Veuillez réessayer.'); */
         return null;
       }
     } catch (e) {
-      print('------- ERROR FETCHING MEMBER DETAILS --------');
-      print('Error: $e');
-    CommonMethods commonMethods = CommonMethods();
-
-      commonMethods.showAlertDialog(context, 'Erreur de connexion',
-          'Impossible de récupérer les détails du membre. Veuillez réessayer.');
-      throw Exception('Échec de l\'API Member Details: $e');
+      print('Error fetching member details: $e');
+      throw Exception('Error fetching member details: $e');
     }
   }
+
 }

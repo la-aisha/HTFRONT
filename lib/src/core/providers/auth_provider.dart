@@ -105,7 +105,7 @@ class AuthProvider extends ChangeNotifier {
     }
   }
 
-  Future<MemberResponse> getMemberinfoProvider(
+ /*  Future<MemberResponse> getMemberinfoProvider(
       String token, BuildContext context) async {
     try {
       final response = await AuthService.getMemberinfoService(token, context);
@@ -122,5 +122,22 @@ class AuthProvider extends ChangeNotifier {
       print('Exception caught in loginProvider: $e');
       throw Exception('Fail API number: $e');
     }
+  } */
+ 
+ Future<MemberResponse?> getMemberinfoProvider(
+      String token, BuildContext context) async {
+    try {
+      final response = await AuthService.getMemberinfoService(token, context);
+      if (response != null) {
+        return response; // Return the MemberResponse object or null
+      } else {
+        print('Failed to fetch member info: No access token');
+        return null;
+      }
+    } catch (e) {
+      print('Exception in getMemberinfoProvider: $e');
+      return null;
+    }
   }
+
 }

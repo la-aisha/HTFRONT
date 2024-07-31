@@ -1,0 +1,1 @@
+ C:\\Projets\\Flutter\\hizboufront\\.dart_tool\\flutter_build\\ec835f88f34e99a7f65359f7c4b88f0f\\native_assets.yaml: 
