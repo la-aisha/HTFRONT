@@ -81,9 +81,10 @@ const String affiche2 = 'images/home/r2.png';
 const String affiche3 = 'images/home/r3.png';
 const String errorIcon = 'images/home/error.png';
 
-
-
-
+const String modifier = 'images/profile/modifier.png';
+const String profilIcon = 'images/profile/user.png';
+const String locationIcon = 'images/profile/location.png';
+const String ddnIcon = 'images/profile/ddn.png';
 
 //bottom nav
 const String homeActif = 'images/bottomnav/home2.png';

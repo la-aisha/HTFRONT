@@ -62,11 +62,12 @@ class AuthService {
       throw Exception('Échec de l\'API Auth: $e');
     }
   }
-static Future<MemberResponse?> getMemberinfoService(
+
+  static Future<MemberResponse?> getMemberinfoService(
       String token, BuildContext context) async {
     try {
       var dio = Dio();
-      var url = Config.apiUrlMs + Config.getMemberInfo; // Adjust as necessary
+      var url = Config.apiUrlMs + Config.getMemberInfo;
 
       print('Fetching from URL: $url');
 
@@ -79,6 +80,7 @@ static Future<MemberResponse?> getMemberinfoService(
           },
         ),
       );
+      print(response.data.toString());
 
       if (response.statusCode == 200) {
         Map<String, dynamic> jsonResponse = response.data;
@@ -96,4 +98,33 @@ static Future<MemberResponse?> getMemberinfoService(
     }
   }
 
+  static Future logOutService(String token, BuildContext context) async {
+    try {
+      var dio = Dio();
+      var url = Config.apiUrlKeycloack + Config.logOut;
+
+      print('Fetching from URL: $url');
+
+      var response = await dio.get(
+        url,
+        options: Options(
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Content-Type': Headers.jsonContentType,
+          },
+        ),
+      );
+
+      if (response.statusCode == 200) {
+        print('Member log out   successfully: ');
+        //return memberResponse;
+      } else {
+        print('Failed to logout user: ${response.statusCode}');
+        return null;
+      }
+    } catch (e) {
+      print('Error lougout   : $e');
+      throw Exception('Error logging out member : $e');
+    }
+  }
 }

@@ -12,27 +12,35 @@ class OnboardingPage extends StatefulWidget {
 }
 
 class _OnboardingPageState extends State<OnboardingPage> {
+  int currentIndex = 0;
+
   @override
   void initState() {
     super.initState();
     _checkOnboarding();
   }
-  
+
   Future<void> _checkOnboarding() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool? seen = prefs.getBool('seenOnboarding');
 
     if (seen == null || !seen) {
-      Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => OnboardingPage()),
-      );
+      // If onboarding hasn't been seen, show the onboarding page
     } else {
+      // If onboarding has been seen, navigate to Home
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (context) => Home()),
       );
     }
   }
 
+  Future<void> _onboardingComplete() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('seenOnboarding', true);
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => Home()),
+    );
+  }
 
   final List<PageModel> pages = [
     PageModel(
@@ -54,7 +62,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
           'Lorem ipsum dolor sit amet consectetur. Ut pulvinar pellentesque amet platea facilisis elei',
     ),
   ];
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +73,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
       resizeToAvoidBottomInset: true,
       body: Stack(
         children: [
-           Container(
+          Container(
             height: double.infinity,
             width: double.infinity,
           ),
@@ -79,21 +86,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
               height: height,
             ),
           ),
-         /*  GestureDetector(
-            onTap: () {
-              if (currentIndex < pages.length - 1) {
-                setState(() {
-                  currentIndex++;
-                });
-              }
-            },
-            child: Image.asset(
-              pages[currentIndex].backgroundImage,
-              fit: BoxFit.cover,
-              width: width,
-              height: height,
-            ),
-          ), */
           Positioned.fill(
             top: height * 0.70,
             child: Container(
@@ -176,12 +168,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   else
                     GestureDetector(
                       onTap: () {
-                        // Handle button press when it's the last page
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginRegister()),
-                        );
+                        _onboardingComplete(); // Mark onboarding as complete
                       },
                       child: Container(
                         decoration: BoxDecoration(
@@ -192,7 +179,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
                           horizontal: 20.0,
                           vertical: 12.0,
                         ),
-                        //height: 58,
                         child: Center(
                           child: TitleText(
                             data: 'Terminer',
