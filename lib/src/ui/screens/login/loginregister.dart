@@ -26,7 +26,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                   child: Image.asset('images/logo1.png'),
                 ), 
               ),
-              Spacer() ,
+              const Spacer() ,
               CustomElevatedButton(backgroundColor: AppColors.green1, borderColor: AppColors.green1, borderRadius: 8,
                width: double.infinity, height: 58, onPressed: (){
                 Navigator.push(
@@ -43,7 +43,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                   fontFamily: 'Urbanist',
                 ),
               ),
-              SizedBox(height: 15,),
+              const SizedBox(height: 15,),
               CustomElevatedButton(backgroundColor: AppColors.yellow, borderColor: AppColors.green1, borderRadius: 8,
                width: double.infinity, height: 58, onPressed: (){}, titleText: TitleText(
                   data: 'Inscription',

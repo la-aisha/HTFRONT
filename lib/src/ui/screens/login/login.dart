@@ -61,7 +61,6 @@ class _LoginState extends State<Login> {
     return result;
   }
 
-
   checkConnectivity() {
     print('---------------- Hello ------------------');
     commonMethods.checkConnectivity(context);
@@ -171,7 +170,7 @@ class _LoginState extends State<Login> {
                 height: 58,
                 onPressed: isactive
                     ? () {
-                        login();
+                        checkConnectivity();
                       }
                     : () {
                         //checkConnectivity();
@@ -186,7 +185,7 @@ class _LoginState extends State<Login> {
                   fontFamily: 'Poppins',
                 ),
               ),
-              SizedBox(height: 20), // Added spacing to avoid overflow
+             /*  SizedBox(height: 20), // Added spacing to avoid overflow
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -211,7 +210,7 @@ class _LoginState extends State<Login> {
                   )
                 ],
               )
-            ],
+             */],
           ),
         ),
       ),

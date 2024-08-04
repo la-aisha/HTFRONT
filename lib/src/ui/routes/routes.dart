@@ -12,15 +12,15 @@ class Routers {
     final arguments = settings.name;
     switch (arguments) {
       case splash:
-        return MaterialPageRoute(builder: (_) => SplashScreen());
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case onboarding:
         return MaterialPageRoute(builder: (_) => OnboardingPage());
        case loginregister:
-        return MaterialPageRoute(builder: (_) => LoginRegister());
+        return MaterialPageRoute(builder: (_) => const LoginRegister());
       case login:
-        return MaterialPageRoute(builder: (_) => Login());
+        return MaterialPageRoute(builder: (_) => const Login());
       case register:
-        return MaterialPageRoute(builder: (_) => Register());
+        return MaterialPageRoute(builder: (_) => const Register());
       /*
       case qcg:
         return MaterialPageRoute(builder: (_) => QCGScreen());

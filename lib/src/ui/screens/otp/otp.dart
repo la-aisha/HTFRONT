@@ -54,7 +54,7 @@ class _OtpState extends State<Otp> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Login()),
+                  MaterialPageRoute(builder: (context) => const Login()),
                 );
               },
               child: Image.asset(
@@ -62,7 +62,7 @@ class _OtpState extends State<Otp> {
                 width: 41,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             TitleOption(
@@ -73,7 +73,7 @@ class _OtpState extends State<Otp> {
             TitleText(
               data:
                   "Votre nouveau mot de passe doit être différent de ceux utilisés précédemment.",
-              color: Color.fromRGBO(106, 112, 124, 1),
+              color: const Color.fromRGBO(106, 112, 124, 1),
               size: 14,
               weight: FontWeight.w600,
               maxLines: 2,
@@ -81,7 +81,7 @@ class _OtpState extends State<Otp> {
               fontFamily: 'Urbanist',
               textAlign: TextAlign.left,
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
            Form(
@@ -123,7 +123,7 @@ class _OtpState extends State<Otp> {
                 ), 
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             CustomElevatedButton(
@@ -148,13 +148,13 @@ class _OtpState extends State<Otp> {
                 fontFamily: 'Urbanist',
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TitleText(
                     data: 'Pas recu de code ? ',
-                    color: Color.fromRGBO(106, 112, 124, 1),
+                    color: const Color.fromRGBO(106, 112, 124, 1),
                     size: 15,
                     weight: FontWeight.w600,
                     maxLines: 1,

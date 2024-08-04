@@ -7,7 +7,7 @@ class LoaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitDoubleBounce(color: AppColors.green1);
+    return const SpinKitDoubleBounce(color: AppColors.green1);
   }
 }
 
@@ -27,7 +27,7 @@ class LoaderOnSubmit extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitPouringHourGlassRefined(
+    return const SpinKitPouringHourGlassRefined(
       color: Colors.white,
     );
   }

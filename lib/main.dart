@@ -4,12 +4,8 @@ import 'package:hive/hive.dart';
 import 'package:hizboufront/src/core/global/colors.dart';
 import 'package:hizboufront/src/core/providers/bottomnav_provider.dart';
 import 'package:hizboufront/src/core/providers/auth_provider.dart';
-import 'package:hizboufront/src/ui/routes/route_path.dart';
-import 'package:hizboufront/src/ui/screens/home/home.dart';
 import 'package:hizboufront/src/ui/screens/login/login.dart';
 import 'package:hizboufront/src/ui/screens/onboarding.dart';
-import 'package:hizboufront/src/ui/screens/profile/profile.dart';
-import 'package:hizboufront/src/ui/screens/splash_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -20,7 +16,7 @@ Future<void> main() async {
   final appDocumentDir = await getApplicationDocumentsDirectory();
   Hive.init(appDocumentDir.path);
 
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,7 +29,7 @@ class MyApp extends StatelessWidget {
     if (seenOnboarding == null || !seenOnboarding) {
       return OnboardingPage(); // Adjust this if OnboardingPage is not imported
     } else {
-      return Login(); // Adjust this if Home is not imported
+      return const Login(); // Adjust this if Home is not imported
     }
   }
 
@@ -56,14 +52,14 @@ class MyApp extends StatelessWidget {
           future: _getInitialScreen(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Scaffold(
-                body: Center(child: CircularProgressIndicator()),
+              return const Scaffold(
+                body: const Center(child: CircularProgressIndicator()),
               ); // Show a loading spinner while the onboarding status is being determined
             } else if (snapshot.hasData) {
               return snapshot.data!;
             } else {
               // Handle error if needed
-              return Scaffold(
+              return const Scaffold(
                 body: Center(child: Text('Error loading screen')),
               );
             }

@@ -156,6 +156,13 @@ class AuthProvider extends ChangeNotifier {
       return null;
     }
   }
+
+  Future<void> _clearAuthInfo() async {
+    final SharedPreferences s = await SharedPreferences.getInstance();
+    await s.remove("is_signedin");
+    await s.remove("token_info");
+    _isSignedIn = false;
+  }
   
    Future logOutProvider(
       String token, BuildContext context) async {
@@ -163,6 +170,8 @@ class AuthProvider extends ChangeNotifier {
       final response = await AuthService.logOutService(token, context);
       if (response != null) {
        // memberResponse = response;
+       await _clearAuthInfo();
+        notifyListeners();
         return response;
       } else {
         print('Failed to fetch log out : No access token');

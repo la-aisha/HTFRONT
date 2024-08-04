@@ -30,14 +30,14 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         label: "Accueil",
         imagePath: homeInactif,
         selectedImagePath: homeActif,
-        page: Home(),
+        page: const Home(),
         onPressed: (context) {
           Provider.of<SelectedIndexModelProvider>(context, listen: false)
               .setCurrentIndex(0);
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Home(),
+              builder: (context) => const Home(),
             ),
           );
         },
@@ -48,14 +48,14 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         label: "Cotisation",
         imagePath: cotisationInactif,
         selectedImagePath: cotisationActif,
-        page: Cotisation(),
+        page: const Cotisation(),
         onPressed: (context) {
           Provider.of<SelectedIndexModelProvider>(context, listen: false)
               .setCurrentIndex(1);
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Cotisation(),
+              builder: (context) => const Cotisation(),
             ),
           );
         },
@@ -66,14 +66,14 @@ class _MyBottomNavBarState extends State<MyBottomNavBar> {
         label: "Profil",
         imagePath: profilInactif,
         selectedImagePath: profilActif,
-        page: Profile(),
+        page: const Profile(),
         onPressed: (context) {
           Provider.of<SelectedIndexModelProvider>(context, listen: false)
               .setCurrentIndex(2);
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Profile(),
+              builder: (context) => const Profile(),
             ),
           );
         },

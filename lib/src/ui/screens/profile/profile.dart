@@ -46,7 +46,7 @@ class _ProfileState extends State<Profile> {
   }
 
   Future<String> fetchInitialISOCode() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
     return 'SN';
   }
 
@@ -58,14 +58,14 @@ class _ProfileState extends State<Profile> {
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
-      backgroundColor: Color.fromRGBO(14, 44, 34, 10),
+      backgroundColor: const Color.fromRGBO(14, 44, 34, 10),
       body: SafeArea(
         child: FutureBuilder<MemberResponse?>(
           future: memberFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               // Show shimmer effect while loading
-              return Center(
+              return const Center(
                 child:    Center(
                   child: LoaderWidget(),
                 )
@@ -105,10 +105,10 @@ class _ProfileState extends State<Profile> {
             } else if (snapshot.hasError) {
               return Center(
                 child: Text('Error: ${snapshot.error}',
-                    style: TextStyle(color: Colors.red)),
+                    style: const TextStyle(color: Colors.red)),
               ); // Show error message
             } else if (!snapshot.hasData) {
-              return Center(
+              return const Center(
                 child: Text('No data available',
                     style: TextStyle(color: Colors.black)),
               ); // Show no data message
@@ -150,7 +150,7 @@ class _ProfileState extends State<Profile> {
                           child: Column(
                             children: [
                               Container(
-                                padding: EdgeInsets.symmetric(
+                                padding: const EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 15),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
@@ -204,7 +204,7 @@ class _ProfileState extends State<Profile> {
                                                 color: AppColors.green1,
                                                 size: 24,
                                                 weight: FontWeight.bold),
-                                            SizedBox(height: 10),
+                                            const SizedBox(height: 10),
                                             TitleText(
                                                 data:
                                                     '${memberResponse.matricule}',
@@ -214,8 +214,8 @@ class _ProfileState extends State<Profile> {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.clip,
                                                 fontFamily: 'Sen'),
-                                            SizedBox(height: 20),
-                                            GestureDetector(
+                                            const SizedBox(height: 20),
+                                            /* GestureDetector(
                                               onTap: () {},
                                               child: Container(
                                                 width: 200,
@@ -250,7 +250,7 @@ class _ProfileState extends State<Profile> {
                                                 ),
                                               ),
                                             )
-                                          ],
+                                           */],
                                         )
                                       ],
                                     )
@@ -289,7 +289,7 @@ class _ProfileState extends State<Profile> {
                                     overflow: TextOverflow.clip,
                                     fontFamily: 'Inter',
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Container(
                                     color: Colors.white,
                                     height: 50,
@@ -316,7 +316,7 @@ class _ProfileState extends State<Profile> {
                                       keyboardType: TextInputType.name,
                                     ),
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   TitleText(
                                     data: "Adresse",
                                     color: Colors.black,
@@ -326,7 +326,7 @@ class _ProfileState extends State<Profile> {
                                     overflow: TextOverflow.clip,
                                     fontFamily: 'Inter',
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Container(
                                     color: Colors.white,
                                     height: 50,
@@ -353,7 +353,7 @@ class _ProfileState extends State<Profile> {
                                       keyboardType: TextInputType.name,
                                     ),
                                   ),
-                                   SizedBox(height: 10),
+                                   const SizedBox(height: 10),
                                   TitleText(
                                     data: "Date de Naissance",
                                     color: Colors.black,
@@ -363,7 +363,7 @@ class _ProfileState extends State<Profile> {
                                     overflow: TextOverflow.clip,
                                     fontFamily: 'Inter',
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Container(
                                     color: Colors.white,
                                     height: 50,
@@ -390,7 +390,7 @@ class _ProfileState extends State<Profile> {
                                       keyboardType: TextInputType.name,
                                     ),
                                   ),
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   TitleText(
                                     data: "Cellule",
                                     color: Colors.black,
@@ -400,7 +400,7 @@ class _ProfileState extends State<Profile> {
                                     overflow: TextOverflow.clip,
                                     fontFamily: 'Inter',
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Container(
                                     color: Colors.white,
                                     height: 50,
@@ -429,7 +429,7 @@ class _ProfileState extends State<Profile> {
                                     ),
                                   ),
                                   
-                                  SizedBox(height: 10),
+                                  const SizedBox(height: 10),
                                   TitleText(
                                     data: "Téléphone",
                                     color: Colors.black,
@@ -439,7 +439,7 @@ class _ProfileState extends State<Profile> {
                                     overflow: TextOverflow.clip,
                                     fontFamily: 'Inter',
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Column(
                                     children: [
                                       Container(
@@ -454,7 +454,7 @@ class _ProfileState extends State<Profile> {
                                           onInputValidated: (bool value) {
                                             print(value);
                                           },
-                                          selectorConfig: SelectorConfig(
+                                          selectorConfig: const SelectorConfig(
                                             selectorType: PhoneInputSelectorType
                                                 .BOTTOM_SHEET,
                                           ),
@@ -462,14 +462,14 @@ class _ProfileState extends State<Profile> {
                                           autoValidateMode:
                                               AutovalidateMode.disabled,
                                           selectorTextStyle:
-                                              TextStyle(color: Colors.black),
+                                              const TextStyle(color: Colors.black),
                                           initialValue: number,
                                           textFieldController: phoneController,
                                           formatInput: true,
                                           keyboardType:
-                                              TextInputType.numberWithOptions(
+                                              const TextInputType.numberWithOptions(
                                                   signed: true, decimal: true),
-                                          inputBorder: OutlineInputBorder(
+                                          inputBorder: const OutlineInputBorder(
                                               borderSide: BorderSide(
                                                   color: AppColors.green1)),
                                           onSaved: (PhoneNumber number) {
@@ -480,13 +480,13 @@ class _ProfileState extends State<Profile> {
                                           inputDecoration: InputDecoration(
                                             hintText:
                                                 "${memberResponse.numeroTel}",
-                                            hintStyle: TextStyle(
+                                            hintStyle: const TextStyle(
                                                 color: Colors.black45,
                                                 fontWeight: FontWeight.normal),
-                                            border: OutlineInputBorder(
+                                            border: const OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                     color: AppColors.green1)),
-                                            focusedBorder: OutlineInputBorder(
+                                            focusedBorder: const OutlineInputBorder(
                                                 borderSide: BorderSide(
                                                     color: AppColors.green1)),
                                           ),
