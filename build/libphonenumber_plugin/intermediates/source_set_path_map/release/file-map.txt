@@ -1,0 +1,12 @@
+com.example.libphonenumber_plugin-pngs-0 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\generated\res\pngs\release
+com.example.libphonenumber_plugin-resValues-1 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\generated\res\resValues\release
+com.example.libphonenumber_plugin-rs-2 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\generated\res\rs\release
+com.example.libphonenumber_plugin-mergeReleaseResources-3 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.example.libphonenumber_plugin-mergeReleaseResources-4 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.example.libphonenumber_plugin-merged_res-5 C:\Projets\Flutter\hizboufront\build\libphonenumber_plugin\intermediates\merged_res\release
+com.example.libphonenumber_plugin-core-1.6.0-6 C:\Users\pc\.gradle\caches\transforms-3\284a410c767ad6c7a2b0ffc8d8d85981\transformed\core-1.6.0\res
+com.example.libphonenumber_plugin-jetified-window-java-1.0.0-beta04-7 C:\Users\pc\.gradle\caches\transforms-3\2a215381204751055df81b6269e717b7\transformed\jetified-window-java-1.0.0-beta04\res
+com.example.libphonenumber_plugin-jetified-annotation-experimental-1.1.0-8 C:\Users\pc\.gradle\caches\transforms-3\3d2f03fc996c2e0aa3dee5cfa3002cd1\transformed\jetified-annotation-experimental-1.1.0\res
+com.example.libphonenumber_plugin-jetified-window-1.0.0-beta04-9 C:\Users\pc\.gradle\caches\transforms-3\f302e75fb7efd781bcf1a29281c188da\transformed\jetified-window-1.0.0-beta04\res
+com.example.libphonenumber_plugin-main-10 C:\Users\pc\AppData\Local\Pub\Cache\hosted\pub.dev\libphonenumber_plugin-0.3.3\android\src\main\res
+com.example.libphonenumber_plugin-release-11 C:\Users\pc\AppData\Local\Pub\Cache\hosted\pub.dev\libphonenumber_plugin-0.3.3\android\src\release\res
