@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.hizboufront.app-mergeDebugResources-6:/values-gl/values-gl.xml",
+            "outputFile": "com.example.hizboufront.app-mergeDebugResources-26:/values-gl/values-gl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\3b2d428fede6c5e3dd9018d5c02cc047\\transformed\\jetified-play-services-base-18.0.1\\res\\values-gl\\values.xml",
+                    "source": "/Users/orangedigitalcenter/.gradle/caches/transforms-3/3b2d428fede6c5e3dd9018d5c02cc047/transformed/jetified-play-services-base-18.0.1/res/values-gl/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -21,24 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\88dbd55d68aa64142427667a0b0fd3ea\\transformed\\jetified-play-services-basement-18.2.0\\res\\values-gl\\values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "195",
-                        "endColumns": "129",
-                        "endOffsets": "324"
-                    },
-                    "to": {
-                        "startLines": "17",
-                        "startColumns": "4",
-                        "startOffsets": "1808",
-                        "endColumns": "133",
-                        "endOffsets": "1937"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\pc\\.gradle\\caches\\transforms-3\\2f6a5506f4dac22f7ab67b13b215ea43\\transformed\\core-1.13.1\\res\\values-gl\\values-gl.xml",
+                    "source": "/Users/orangedigitalcenter/.gradle/caches/transforms-3/2f6a5506f4dac22f7ab67b13b215ea43/transformed/core-1.13.1/res/values-gl/values-gl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -52,6 +35,23 @@
                         "startOffsets": "55,154,256,356,454,561,667,3064",
                         "endColumns": "98,101,99,97,106,105,115,100",
                         "endOffsets": "149,251,351,449,556,662,778,3160"
+                    }
+                },
+                {
+                    "source": "/Users/orangedigitalcenter/.gradle/caches/transforms-3/88dbd55d68aa64142427667a0b0fd3ea/transformed/jetified-play-services-basement-18.2.0/res/values-gl/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "195",
+                        "endColumns": "129",
+                        "endOffsets": "324"
+                    },
+                    "to": {
+                        "startLines": "17",
+                        "startColumns": "4",
+                        "startOffsets": "1808",
+                        "endColumns": "133",
+                        "endOffsets": "1937"
                     }
                 }
             ]

@@ -4,6 +4,7 @@ import 'package:hizboufront/src/core/models/page_model.dart';
 import 'package:hizboufront/src/ui/screens/home/home.dart';
 import 'package:hizboufront/src/ui/screens/login/login.dart';
 import 'package:hizboufront/src/ui/screens/login/loginregister.dart';
+import 'package:hizboufront/src/ui/screens/splash_screen.dart';
 import 'package:hizboufront/utils/title.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -28,7 +29,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
     if (seen == null || !seen) {
       // If onboarding hasn't been seen, show the onboarding page
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => OnboardingPage()),
+        MaterialPageRoute(builder: (context) => SplashScreen()),
       );
     } else {
       // If onboarding has been seen, navigate to Home
