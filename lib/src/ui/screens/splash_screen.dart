@@ -2,8 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:hizboufront/src/core/global/colors.dart';
 import 'package:hizboufront/src/ui/routes/route_path.dart';
+import 'package:hizboufront/src/ui/screens/home/home.dart';
+import 'package:hizboufront/src/ui/screens/login/login.dart';
 import 'package:hizboufront/src/ui/screens/onboarding.dart';
 import 'package:hizboufront/utils/screensize.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -14,16 +17,32 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  Future<void> _navigateToNext() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool? seen = prefs.getBool('seenOnboarding');
+  String? token = prefs.getString('token_info');
+
+  await Future.delayed(Duration(seconds: 2));
+
+  if (seen == null || !seen) {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => OnboardingPage()),
+    );
+  // // } else if (token != null && token.isNotEmpty) {
+  // //   Navigator.of(context).pushReplacement(
+  // //     MaterialPageRoute(builder: (context) => Home()),
+  // //   );
+  } else {
+    Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (context) => Login()),
+    );
+  }
+}
+
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 8), () {
-       /* Navigator.pushNamed(context, onboarding); */
-       Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) =>  OnboardingPage()),
-      );
-    });
+    _navigateToNext() ;
   }
 
   @override

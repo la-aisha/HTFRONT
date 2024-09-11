@@ -5,6 +5,7 @@ import 'package:hizboufront/src/core/models/response/member_response.dart';
 import 'package:hizboufront/src/core/providers/auth_provider.dart';
 import 'package:hizboufront/src/ui/constantes/index.dart';
 import 'package:hizboufront/src/ui/screens/home/home.dart';
+import 'package:hizboufront/src/ui/screens/login/login.dart';
 import 'package:hizboufront/utils/loader_widget.dart';
 import 'package:hizboufront/utils/title.dart';
 import 'package:hizboufront/utils/titleoption.dart';
@@ -26,6 +27,7 @@ class _ProfileState extends State<Profile> {
   bool isValidNumber = false;
   PhoneNumber number = PhoneNumber(isoCode: '');
   final TextEditingController phoneController = TextEditingController();
+  //final ap = Provider.of<AuthProvider>(context, listen: false);
 
   Future<MemberResponse?> fetchMemberInfo() async {
     final ap = Provider.of<AuthProvider>(context, listen: false);
@@ -151,25 +153,17 @@ class _ProfileState extends State<Profile> {
                             children: [
                               Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 15),
+                                    horizontal: 30, vertical: 15),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(20),
                                   color: AppColors.yellow,
                                 ),
                                 width: double.infinity,
                                 height: height * 0.2,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                         
+                                child: 
                                         Column(
+                                          mainAxisAlignment: MainAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
                                             GestureDetector(
                                               onTap: () {
@@ -185,26 +179,22 @@ class _ProfileState extends State<Profile> {
                                                 width: 41,
                                               ),
                                             ),
-                                            Image.asset(
-                                              profilePicture,
-                                              height: 100,
-                                              width: 100,
-                                            ),
-                                          ],
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            TitleOption(
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              children: [
+                                                Image.asset(
+                                                  profilePicture,
+                                                  height: 100,
+                                                  width: 100,
+                                                ),
+                                                Column(
+                                                  children: [
+                                                    TitleOption(
                                                 data:
                                                     '${memberResponse.prenom} ${memberResponse.nom}',
                                                 color: AppColors.green1,
                                                 size: 24,
                                                 weight: FontWeight.bold),
-                                            const SizedBox(height: 10),
                                             TitleText(
                                                 data:
                                                     '${memberResponse.matricule}',
@@ -214,47 +204,77 @@ class _ProfileState extends State<Profile> {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.clip,
                                                 fontFamily: 'Sen'),
-                                            const SizedBox(height: 20),
-                                            /* GestureDetector(
-                                              onTap: () {},
-                                              child: Container(
-                                                width: 200,
-                                                height: 30,
-                                                decoration: BoxDecoration(
-                                                    color: Color.fromRGBO(
-                                                        217, 217, 217, 1),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            10)),
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment
-                                                          .spaceAround,
-                                                  children: [
-                                                    TitleText(
-                                                        data: 'Modifier profil',
-                                                        color: Color.fromRGBO(
-                                                            70, 78, 87, 1),
-                                                        size: 16,
-                                                        weight:
-                                                            FontWeight.normal,
-                                                        maxLines: 1,
-                                                        overflow:
-                                                            TextOverflow.clip,
-                                                        fontFamily: 'Sen'),
-                                                    Image.asset(
-                                                      modifier,
-                                                      height: 10,
-                                                    ),
+                                              ],
+                                            ),
+
                                                   ],
-                                                ),
-                                              ),
-                                            )
-                                           */],
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                                )
+                                                
+                                          ],
+                                        
+                                        // Column(
+                                        //   mainAxisAlignment:
+                                        //       MainAxisAlignment.spaceBetween,
+                                        //   crossAxisAlignment:
+                                        //       CrossAxisAlignment.start,
+                                        //   children: [
+                                        //     TitleOption(
+                                        //         data:
+                                        //             '${memberResponse.prenom} ${memberResponse.nom}',
+                                        //         color: AppColors.green1,
+                                        //         size: 24,
+                                        //         weight: FontWeight.bold),
+                                        //     const SizedBox(height: 10),
+                                        //     TitleText(
+                                        //         data:
+                                        //             '${memberResponse.matricule}',
+                                        //         color: Colors.green,
+                                        //         size: 16,
+                                        //         weight: FontWeight.normal,
+                                        //         maxLines: 1,
+                                        //         overflow: TextOverflow.clip,
+                                        //         fontFamily: 'Sen'),
+                                        //     const SizedBox(height: 20),
+                                        //     /* GestureDetector(
+                                        //       onTap: () {},
+                                        //       child: Container(
+                                        //         width: 200,
+                                        //         height: 30,
+                                        //         decoration: BoxDecoration(
+                                        //             color: Color.fromRGBO(
+                                        //                 217, 217, 217, 1),
+                                        //             borderRadius:
+                                        //                 BorderRadius.circular(
+                                        //                     10)),
+                                        //         child: Row(
+                                        //           mainAxisAlignment:
+                                        //               MainAxisAlignment
+                                        //                   .spaceAround,
+                                        //           children: [
+                                        //             TitleText(
+                                        //                 data: 'Modifier profil',
+                                        //                 color: Color.fromRGBO(
+                                        //                     70, 78, 87, 1),
+                                        //                 size: 16,
+                                        //                 weight:
+                                        //                     FontWeight.normal,
+                                        //                 maxLines: 1,
+                                        //                 overflow:
+                                        //                     TextOverflow.clip,
+                                        //                 fontFamily: 'Sen'),
+                                        //             Image.asset(
+                                        //               modifier,
+                                        //               height: 10,
+                                        //             ),
+                                        //           ],
+                                        //         ),
+                                        //       ),
+                                        //     )
+                                        //    */],
+                                        // )
+                                      
+                                  
+                                  
                                 ),
                               )
                             ],
@@ -294,8 +314,10 @@ class _ProfileState extends State<Profile> {
                                     color: Colors.white,
                                     height: 50,
                                     child: TextField(
+                                      readOnly: true,
                                       onChanged: (value) {},
                                       decoration: InputDecoration(
+
                                           hintText:
                                               '${memberResponse.prenom} ${memberResponse.nom}',
                                           labelStyle: const TextStyle(
@@ -445,63 +467,91 @@ class _ProfileState extends State<Profile> {
                                       Container(
                                         height: 50,
                                         color: Colors.white,
-                                        child: InternationalPhoneNumberInput(
-                                          onInputChanged: (PhoneNumber number) {
-                                            /* phoneNumber = number.phoneNumber!;
-                                            countryCode = number.isoCode!;
-                                            isValidNumber = true; */
+                                        child: GestureDetector(
+                                          onTap: () {
+                                            // Do nothing, making the field effectively read-only
                                           },
-                                          onInputValidated: (bool value) {
-                                            print(value);
-                                          },
-                                          selectorConfig: const SelectorConfig(
-                                            selectorType: PhoneInputSelectorType
-                                                .BOTTOM_SHEET,
-                                          ),
-                                          ignoreBlank: false,
-                                          autoValidateMode:
-                                              AutovalidateMode.disabled,
-                                          selectorTextStyle:
-                                              const TextStyle(color: Colors.black),
-                                          initialValue: number,
-                                          textFieldController: phoneController,
-                                          formatInput: true,
-                                          keyboardType:
-                                              const TextInputType.numberWithOptions(
+                                          child: AbsorbPointer(
+                                            absorbing: true,
+                                            child: InternationalPhoneNumberInput(
+                                              onInputChanged: (PhoneNumber number) {
+                                                // Handle input change
+                                              },
+                                              onInputValidated: (bool value) {
+                                                print(value);
+                                              },
+                                              selectorConfig: const SelectorConfig(
+                                                selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                                              ),
+                                              ignoreBlank: false,
+                                              autoValidateMode: AutovalidateMode.disabled,
+                                              selectorTextStyle: const TextStyle(color: Colors.black),
+                                              initialValue: number,
+                                              textFieldController: phoneController,
+                                              formatInput: true,
+                                              keyboardType: const TextInputType.numberWithOptions(
                                                   signed: true, decimal: true),
-                                          inputBorder: const OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color: AppColors.green1)),
-                                          onSaved: (PhoneNumber number) {
-                                            print('On Saved: $number');
-                                          },
-                                          errorMessage: "invalid_phone",
-                                          spaceBetweenSelectorAndTextField: 1,
-                                          inputDecoration: InputDecoration(
-                                            hintText:
-                                                "${memberResponse.numeroTel}",
-                                            hintStyle: const TextStyle(
-                                                color: Colors.black45,
-                                                fontWeight: FontWeight.normal),
-                                            border: const OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: AppColors.green1)),
-                                            focusedBorder: const OutlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: AppColors.green1)),
+                                              inputBorder: const OutlineInputBorder(
+                                                borderSide: BorderSide(color: AppColors.green1),
+                                              ),
+                                              onSaved: (PhoneNumber number) {
+                                                print('On Saved: $number');
+                                              },
+                                              errorMessage: "invalid_phone",
+                                              spaceBetweenSelectorAndTextField: 1,
+                                              inputDecoration: InputDecoration(
+                                                hintText: "${memberResponse.numeroTel}",
+                                                hintStyle: const TextStyle(
+                                                    color: Colors.black45, fontWeight: FontWeight.normal),
+                                                border: const OutlineInputBorder(
+                                                  borderSide: BorderSide(color: AppColors.green1),
+                                                ),
+                                                focusedBorder: const OutlineInputBorder(
+                                                  borderSide: BorderSide(color: AppColors.green1),
+                                                ),
+                                              ),
+                                              countries: [
+                                                "SN", "TN", "CD", "CI", "ML", "GN", "FR", "US"
+                                              ],
+                                            ),
                                           ),
-                                          countries: [
-                                            "SN",
-                                            "TN",
-                                            "CD",
-                                            "CI",
-                                            "ML",
-                                            "GN",
-                                            "FR",
-                                            "US"
-                                          ],
                                         ),
-                                      ),
+                                      ) ,
+
+                                      SizedBox(height: 20,),
+
+                                      GestureDetector(
+                                        onTap: (){
+                                           final ap = Provider.of<AuthProvider>(context, listen: false);
+                                            String token = ap.token;
+                                          ap.logOutProvider(token, context) ;
+                                          Navigator.of(context).pushReplacement(
+                                           MaterialPageRoute(builder: (context) => Login()), );
+                                        } ,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                             color: AppColors.green1,
+                                             borderRadius: BorderRadius.circular(10)
+                                          ),
+                                          width: double.infinity,
+                                          height: 60,
+                                         
+                                          child: Center(
+                                            child: TitleText(
+                                              data: "deconnexion",
+                                              color: Colors.white,
+                                              size: 16,
+                                              weight: FontWeight.normal,
+                                              maxLines: 1,
+                                              overflow: TextOverflow.clip,
+                                              fontFamily: 'Inter',
+                                            ),
+                                            
+                                          ),
+
+
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ],

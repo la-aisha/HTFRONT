@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                     updateActiveState();
                   },
                   decoration: InputDecoration(
-                    hintText: 'Enter your matricule',
+                    hintText: 'Enter votre matricule',
                     labelStyle: const TextStyle(color: Colors.black38),
                     fillColor: AppColors.green1,
                     focusColor: Colors.grey,

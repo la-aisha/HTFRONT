@@ -19,7 +19,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   void initState() {
     super.initState();
-    _checkOnboarding();
+    //_checkOnboarding();
   }
 
   Future<void> _checkOnboarding() async {
